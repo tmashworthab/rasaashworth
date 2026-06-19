@@ -3,7 +3,7 @@ export interface Work {
   title: string;
   /** Filename in /public/images */
   image: string;
-  /** 'portrait' | 'landscape' — used for gallery layout hints */
+  /** 'portrait' | 'landscape' - used for gallery layout hints */
   orientation: 'portrait' | 'landscape';
   /** Short series / theme label shown under the title */
   series: string;
@@ -49,7 +49,7 @@ export const works: Work[] = [
     orientation: 'portrait',
     series: 'Still Life',
     description:
-      'Two chairs stand together, their warp threads left to trail freely below — a meditation on presence, absence and the quiet companionship of everyday objects.',
+      'Two chairs stand together, their warp threads left to trail freely below, a meditation on presence, absence and the quiet companionship of everyday objects.',
   },
   {
     slug: 'sun-figure',

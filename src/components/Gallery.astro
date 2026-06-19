@@ -20,7 +20,7 @@ const { works } = Astro.props;
           data-desc={work.description}
         >
           <span class="gallery__frame">
-            <img src={work.image} alt={`${work.title} — woven tapestry by Rasa Ashworth`} loading="lazy" />
+            <img src={work.image} alt={`${work.title}, a woven tapestry by Rasa Ashworth`} loading="lazy" />
           </span>
           <span class="gallery__meta">
             <span class="gallery__title">{work.title}</span>
@@ -239,7 +239,7 @@ const { works } = Astro.props;
       current = (i + items.length) % items.length;
       const it = items[current];
       img.src = it.src;
-      img.alt = `${it.title} — woven tapestry by Rasa Ashworth`;
+      img.alt = `${it.title}, a woven tapestry by Rasa Ashworth`;
       elTitle.textContent = it.title;
       elSeries.textContent = it.series;
       elDesc.textContent = it.desc;

@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="About — Rasa Ashworth"
+  description="About Rasa Ashworth, a Lithuanian tapestry artist trained at the Vilnius Academy of Arts and working in Bristol, UK."
+  image="/images/RasaAshworth-Bust2.jpg"
+>
+  <section class="section about">
+    <div class="wrap about__grid">
+      <figure class="about__portrait reveal">
+        <img
+          src="/images/RasaAshworth-Bust2.jpg"
+          alt="Green Figure — a tapestry by Rasa Ashworth"
+        />
+        <figcaption>Green Figure · wool & linen</figcaption>
+      </figure>
+
+      <div class="about__text reveal">
+        <span class="eyebrow">About the Artist</span>
+        <h1>Rasa Ashworth</h1>
+
+        <p class="lead">
+          A Lithuanian tapestry artist working in the United Kingdom, weaving
+          light, shadow and the subtle colours of the natural world.
+        </p>
+
+        <p>
+          I began my journey into the world of tapestry during my studies at the
+          Vilnius Academy of Arts. My work has been deeply inspired by rural
+          landscapes, focusing on the interplay of light and shadow, the gentle
+          transitions and subtler colours found in the natural world.
+        </p>
+
+        <p>
+          More recently I have been exploring still life and street scenes as
+          well as a range of maritime themes depicted in seascapes around
+          Bristol.
+        </p>
+
+        <hr class="divider" />
+
+        <dl class="about__facts">
+          <div>
+            <dt>Training</dt>
+            <dd>Vilnius Academy of Arts</dd>
+          </div>
+          <div>
+            <dt>Based in</dt>
+            <dd>Bristol, United Kingdom</dd>
+          </div>
+          <div>
+            <dt>Medium</dt>
+            <dd>Hand-woven tapestry — wool &amp; linen</dd>
+          </div>
+          <div>
+            <dt>Themes</dt>
+            <dd>Landscape · Still life · Figures · Bristol seascapes</dd>
+          </div>
+        </dl>
+
+        <a href="/contact" class="btn btn--accent">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .about__grid {
+    display: grid;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  @media (min-width: 50rem) {
+    .about__grid {
+      grid-template-columns: 0.85fr 1.15fr;
+    }
+    .about__portrait {
+      position: sticky;
+      top: 6.5rem;
+    }
+  }
+  .about__portrait {
+    margin: 0;
+    background: var(--paper);
+    padding: clamp(0.75rem, 2vw, 1.25rem);
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 44px rgba(46, 42, 36, 0.13);
+  }
+  .about__portrait img {
+    width: 100%;
+  }
+  .about__portrait figcaption {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding-top: 0.85rem;
+  }
+  .about__facts {
+    margin: 0 0 2.5rem;
+    display: grid;
+    gap: 1.25rem;
+  }
+  @media (min-width: 30rem) {
+    .about__facts {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .about__facts dt {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.3rem;
+  }
+  .about__facts dd {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+</style>

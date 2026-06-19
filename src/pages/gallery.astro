@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import Gallery from '../components/Gallery.astro';
+import { works } from '../data/works';
+---
+
+<Base
+  title="Gallery — Rasa Ashworth"
+  description="A gallery of woven tapestries by Rasa Ashworth: still life, figures and landscapes."
+>
+  <section class="page-head">
+    <div class="wrap reveal">
+      <span class="eyebrow">Gallery</span>
+      <h1>The Work</h1>
+      <p class="lead">
+        Each piece is hand-woven in wool and linen. Click any work to view it
+        larger.
+      </p>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="wrap">
+      <Gallery works={works} />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-head {
+    padding-block: clamp(3rem, 7vw, 5.5rem) clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .page-head .lead {
+    max-width: 34rem;
+  }
+</style>

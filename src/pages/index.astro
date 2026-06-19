@@ -1,0 +1,193 @@
+---
+import Base from '../layouts/Base.astro';
+import Gallery from '../components/Gallery.astro';
+import { featured } from '../data/works';
+---
+
+<Base>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div class="hero__text reveal">
+        <span class="eyebrow">Woven Tapestry · Bristol, UK</span>
+        <h1>Rasa Ashworth</h1>
+        <p class="lead">
+          Tapestries woven from light and shadow — still life, figures and the
+          quiet landscapes of memory.
+        </p>
+        <div class="hero__actions">
+          <a href="/gallery" class="btn btn--accent">View the Gallery</a>
+          <a href="/about" class="btn">About the Artist</a>
+        </div>
+      </div>
+      <figure class="hero__image reveal">
+        <img
+          src="/images/RasaAshworth-Conversation.jpg"
+          alt="Conversation — an abstract still life tapestry by Rasa Ashworth"
+          fetchpriority="high"
+        />
+        <figcaption>Conversation · wool & linen</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Statement -->
+  <section class="section--tight">
+    <div class="wrap statement reveal">
+      <hr class="divider" />
+      <p class="statement__quote">
+        “My work has been deeply inspired by rural landscapes, focusing on the
+        interplay of light and shadow, the gentle transitions and subtler
+        colours found in the natural world.”
+      </p>
+      <p class="statement__attr">— Rasa Ashworth</p>
+    </div>
+  </section>
+
+  <!-- Featured works -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Selected Work</span>
+        <h2>A few pieces</h2>
+      </div>
+      <Gallery works={featured} />
+      <p class="section-more reveal">
+        <a href="/gallery" class="btn">See all work</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- About teaser -->
+  <section class="section about-teaser">
+    <div class="wrap about-teaser__inner reveal">
+      <div>
+        <span class="eyebrow">About</span>
+        <h2>From Vilnius to Bristol</h2>
+      </div>
+      <div>
+        <p>
+          Rasa began her journey into tapestry at the Vilnius Academy of Arts.
+          Her work draws on rural landscapes and the subtle colours of the
+          natural world, and more recently turns to still life, street scenes
+          and the maritime themes of the Bristol coast.
+        </p>
+        <a href="/about" class="link-arrow">Read more <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="section--tight cta">
+    <div class="wrap cta__inner reveal">
+      <h2>Enquiries &amp; commissions welcome</h2>
+      <p>For available work, commissions or exhibitions, please get in touch.</p>
+      <a href="/contact" class="btn btn--accent">Contact Rasa</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding-block: clamp(3rem, 7vw, 6rem);
+  }
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+  @media (min-width: 52rem) {
+    .hero__inner {
+      grid-template-columns: 1.05fr 1fr;
+    }
+  }
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .hero__image {
+    margin: 0;
+    background: var(--paper);
+    padding: clamp(0.75rem, 2vw, 1.25rem);
+    border: 1px solid var(--line);
+    box-shadow: 0 22px 50px rgba(46, 42, 36, 0.14);
+  }
+  .hero__image img {
+    width: 100%;
+  }
+  .hero__image figcaption {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding-top: 0.85rem;
+  }
+
+  .statement {
+    max-width: 44rem;
+  }
+  .statement__quote {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+    line-height: 1.4;
+    color: var(--ink);
+    margin: 0 0 1rem;
+  }
+  .statement__attr {
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0;
+  }
+
+  .section-head {
+    margin-bottom: 2.75rem;
+  }
+  .section-more {
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+
+  .about-teaser {
+    background: var(--linen-deep);
+    border-block: 1px solid var(--line);
+  }
+  .about-teaser__inner {
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    align-items: start;
+  }
+  @media (min-width: 48rem) {
+    .about-teaser__inner {
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+  }
+  .link-arrow {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--terracotta-deep);
+  }
+  .link-arrow span {
+    transition: margin 0.2s ease;
+    display: inline-block;
+  }
+  .link-arrow:hover span {
+    margin-left: 0.35rem;
+  }
+
+  .cta__inner {
+    text-align: center;
+    max-width: 36rem;
+  }
+  .cta__inner p {
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+  }
+</style>

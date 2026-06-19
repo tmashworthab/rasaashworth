@@ -1,0 +1,17 @@
+{
+  "name": "rasa-ashworth-tapestry",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio website for Rasa Ashworth, Lithuanian tapestry artist",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "start": "serve dist -s -l ${PORT:-3000}"
+  },
+  "dependencies": {
+    "astro": "^4.16.18",
+    "serve": "^14.2.4"
+  }
+}

@@ -1,0 +1,136 @@
+---
+import Base from '../layouts/Base.astro';
+
+// TODO: Replace with Rasa's real contact details before going live.
+const email = 'hello@rasaashworth.com';
+// Optional: a British Tapestry Group profile or social link.
+const btgUrl = 'https://www.britishtapestrygroup.org';
+// Optional: paste a Formspree form ID (https://formspree.io) to enable the
+// form below. Leave empty to hide the form and use email only.
+const formspreeId = '';
+---
+
+<Base
+  title="Contact — Rasa Ashworth"
+  description="Contact Rasa Ashworth about available tapestries, commissions and exhibitions."
+>
+  <section class="section contact">
+    <div class="wrap contact__grid">
+      <div class="contact__intro reveal">
+        <span class="eyebrow">Contact</span>
+        <h1>Get in touch</h1>
+        <p class="lead">
+          For available work, commissions, exhibitions or any enquiry, I would
+          love to hear from you.
+        </p>
+
+        <ul class="contact__list">
+          <li>
+            <span class="contact__label">Email</span>
+            <a href={`mailto:${email}`} class="contact__big">{email}</a>
+          </li>
+          <li>
+            <span class="contact__label">Studio</span>
+            <span>Bristol, United Kingdom</span>
+          </li>
+          <li>
+            <span class="contact__label">Elsewhere</span>
+            <a href={btgUrl} target="_blank" rel="noopener">British Tapestry Group</a>
+          </li>
+        </ul>
+      </div>
+
+      {
+        formspreeId && (
+          <form class="contact__form reveal" action={`https://formspree.io/f/${formspreeId}`} method="POST">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+            <button type="submit" class="btn btn--accent">Send message</button>
+          </form>
+        )
+      }
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact__grid {
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+  }
+  @media (min-width: 52rem) {
+    .contact__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .contact__list {
+    list-style: none;
+    margin: 2.5rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 1.75rem;
+  }
+  .contact__label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.4rem;
+  }
+  .contact__big {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+  }
+  .contact__big:hover {
+    color: var(--terracotta-deep);
+    border-color: var(--terracotta);
+  }
+
+  .contact__form {
+    display: grid;
+    gap: 1.25rem;
+    background: var(--paper);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border: 1px solid var(--line);
+  }
+  .contact__form label {
+    display: grid;
+    gap: 0.4rem;
+  }
+  .contact__form span {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .contact__form input,
+  .contact__form textarea {
+    font: inherit;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--linen);
+    color: var(--ink);
+  }
+  .contact__form input:focus,
+  .contact__form textarea:focus {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 1px;
+    border-color: transparent;
+  }
+</style>

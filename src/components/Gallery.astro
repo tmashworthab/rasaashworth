@@ -80,13 +80,11 @@ const { works } = Astro.props;
     font: inherit;
     color: inherit;
   }
-  /* Each piece is already framed; the wall is trimmed away so it sits
-     directly on the linen. A soft shadow gives the hung-on-the-wall feel. */
+  /* The woven tapestry sits directly on the linen — no frame, no box. */
   .gallery__frame {
     display: block;
-    filter: drop-shadow(0 14px 30px rgba(46, 42, 36, 0.18));
     transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
-      filter 0.5s ease;
+      opacity 0.4s ease;
   }
   .gallery__frame img {
     width: 100%;
@@ -94,8 +92,7 @@ const { works } = Astro.props;
     display: block;
   }
   .gallery__trigger:hover .gallery__frame {
-    transform: translateY(-6px);
-    filter: drop-shadow(0 26px 50px rgba(46, 42, 36, 0.26));
+    transform: scale(1.02);
   }
   .gallery__meta {
     display: flex;
@@ -145,13 +142,10 @@ const { works } = Astro.props;
   }
   .lightbox__img {
     max-width: 100%;
-    max-height: 70vh;
+    max-height: 72vh;
     width: auto;
     height: auto;
     object-fit: contain;
-    background: var(--paper);
-    padding: clamp(0.75rem, 2vw, 1.5rem);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
   }
   .lightbox__caption {
     text-align: center;

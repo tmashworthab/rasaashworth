@@ -144,6 +144,7 @@ p {
 
 /* ---- Buttons ------------------------------------------------------------- */
 
+/* Borderless, underline-style links — no boxes */
 .btn {
   display: inline-block;
   font-family: var(--sans);
@@ -152,28 +153,25 @@ p {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.85rem 1.9rem;
-  border: 1px solid var(--ink);
+  padding: 0.3rem 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
   color: var(--ink);
   background: transparent;
-  border-radius: var(--radius);
-  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease;
 }
 
 .btn:hover {
-  background: var(--ink);
-  color: var(--paper);
+  color: var(--terracotta-deep);
 }
 
 .btn--accent {
-  border-color: var(--terracotta-deep);
   color: var(--terracotta-deep);
 }
 
 .btn--accent:hover {
-  background: var(--terracotta-deep);
-  color: var(--paper);
+  color: var(--terracotta);
 }
 
 /* ---- Motion -------------------------------------------------------------- */

@@ -2,11 +2,15 @@
 import Base from '../layouts/Base.astro';
 
 const email = 'rasa.ashworth@live.co.uk';
-// Optional: a British Tapestry Group profile or social link.
+// A British Tapestry Group profile or social link.
 const btgUrl = 'https://www.thebritishtapestrygroup.co.uk/showcase/rasa-ashworth/';
-// Optional: paste a Formspree form ID (https://formspree.io) to enable the
-// form below. Leave empty to hide the form and use email only.
-const formspreeId = '';
+
+// Contact form delivery via Web3Forms (https://web3forms.com) — free, no
+// account. Get an access key in ~30s: enter rasa.ashworth@live.co.uk at
+// web3forms.com, confirm the email it sends, then paste the key here.
+// Submissions are then emailed straight to that address. Until a key is set,
+// the form is hidden and the email link above is used instead.
+const web3formsKey = '';
 ---
 
 <Base
@@ -40,26 +44,73 @@ const formspreeId = '';
       </div>
 
       {
-        formspreeId && (
-          <form class="contact__form reveal" action={`https://formspree.io/f/${formspreeId}`} method="POST">
+        web3formsKey && (
+          <form class="contact__form reveal" id="contact-form">
+            <input type="hidden" name="access_key" value={web3formsKey} />
+            <input type="hidden" name="subject" value="New enquiry from rasaashworth.com" />
+            <input type="hidden" name="from_name" value="rasaashworth.com" />
+            {/* Honeypot — bots fill this; humans never see it */}
+            <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+
             <label>
               <span>Name</span>
-              <input type="text" name="name" required />
+              <input type="text" name="name" autocomplete="name" required />
             </label>
             <label>
               <span>Email</span>
-              <input type="email" name="email" required />
+              <input type="email" name="email" autocomplete="email" required />
             </label>
             <label>
               <span>Message</span>
               <textarea name="message" rows="5" required></textarea>
             </label>
             <button type="submit" class="btn btn--accent">Send message</button>
+            <p class="contact__status" role="status" aria-live="polite"></p>
           </form>
         )
       }
     </div>
   </section>
+
+  <script>
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    if (form) {
+      const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const status = form.querySelector('.contact__status') as HTMLElement;
+      const btnLabel = btn.textContent;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.classList.remove('is-error', 'is-success');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: new FormData(form),
+          });
+          const data = await res.json();
+          if (data.success) {
+            form.reset();
+            status.textContent =
+              'Thank you — your message has been sent. Rasa will be in touch soon.';
+            status.classList.add('is-success');
+          } else {
+            throw new Error(data.message || 'Submission failed');
+          }
+        } catch (err) {
+          status.textContent =
+            'Sorry, something went wrong. Please email rasa.ashworth@live.co.uk directly.';
+          status.classList.add('is-error');
+        } finally {
+          btn.disabled = false;
+          btn.textContent = btnLabel;
+        }
+      });
+    }
+  </script>
 </Base>
 
 <style>
@@ -131,5 +182,29 @@ const formspreeId = '';
     outline: 2px solid var(--terracotta);
     outline-offset: 1px;
     border-color: transparent;
+  }
+  .contact__form textarea {
+    resize: vertical;
+    min-height: 7rem;
+  }
+  /* Honeypot — visually hidden, off-screen, not announced */
+  .hp {
+    position: absolute !important;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+  .contact__status {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    min-height: 1.2em;
+  }
+  .contact__status.is-success {
+    color: var(--moss);
+  }
+  .contact__status.is-error {
+    color: var(--terracotta-deep);
   }
 </style>

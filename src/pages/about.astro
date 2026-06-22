@@ -10,10 +10,10 @@ import Base from '../layouts/Base.astro';
     <div class="wrap about__grid">
       <figure class="about__portrait reveal">
         <img
-          src="/images/RasaAshworth-Bust2.jpg"
-          alt="Green Figure, a tapestry by Rasa Ashworth"
+          src="/images/gallery/02.jpg"
+          alt="Coronation, a framed tapestry by Rasa Ashworth"
         />
-        <figcaption>Green Figure · wool & linen</figcaption>
+        <figcaption>Coronation · wool &amp; linen</figcaption>
       </figure>
 
       <div class="about__text reveal">
@@ -82,13 +82,11 @@ import Base from '../layouts/Base.astro';
   }
   .about__portrait {
     margin: 0;
-    background: var(--paper);
-    padding: clamp(0.75rem, 2vw, 1.25rem);
-    border: 1px solid var(--line);
-    box-shadow: 0 18px 44px rgba(46, 42, 36, 0.13);
+    filter: drop-shadow(0 18px 40px rgba(46, 42, 36, 0.18));
   }
   .about__portrait img {
     width: 100%;
+    display: block;
   }
   .about__portrait figcaption {
     font-size: 0.72rem;

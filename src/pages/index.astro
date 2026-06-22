@@ -22,11 +22,11 @@ import { featured } from '../data/works';
       </div>
       <figure class="hero__image reveal">
         <img
-          src="/images/RasaAshworth-Conversation.jpg"
-          alt="Conversation, an abstract still life tapestry by Rasa Ashworth"
+          src="/images/gallery/10.jpg"
+          alt="Conversation, a framed tapestry by Rasa Ashworth"
           fetchpriority="high"
         />
-        <figcaption>Conversation · wool & linen</figcaption>
+        <figcaption>Conversation · wool &amp; linen</figcaption>
       </figure>
     </div>
   </section>
@@ -110,13 +110,11 @@ import { featured } from '../data/works';
   }
   .hero__image {
     margin: 0;
-    background: var(--paper);
-    padding: clamp(0.75rem, 2vw, 1.25rem);
-    border: 1px solid var(--line);
-    box-shadow: 0 22px 50px rgba(46, 42, 36, 0.14);
+    filter: drop-shadow(0 22px 45px rgba(46, 42, 36, 0.2));
   }
   .hero__image img {
     width: 100%;
+    display: block;
   }
   .hero__image figcaption {
     font-size: 0.72rem;

@@ -53,7 +53,7 @@ const { works } = Astro.props;
     margin: 0;
     padding: 0;
     columns: 2;
-    column-gap: clamp(1rem, 3vw, 2.25rem);
+    column-gap: clamp(1.75rem, 4vw, 4rem);
   }
   @media (min-width: 56rem) {
     .gallery {
@@ -67,7 +67,7 @@ const { works } = Astro.props;
   }
   .gallery__item {
     break-inside: avoid;
-    margin-bottom: clamp(1rem, 3vw, 2.25rem);
+    margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
   }
   .gallery__trigger {
     display: block;
@@ -80,45 +80,41 @@ const { works } = Astro.props;
     font: inherit;
     color: inherit;
   }
+  /* Each piece is already framed; the wall is trimmed away so it sits
+     directly on the linen. A soft shadow gives the hung-on-the-wall feel. */
   .gallery__frame {
     display: block;
-    background: var(--paper);
-    padding: clamp(0.6rem, 1.5vw, 1rem);
-    border: 1px solid var(--line);
-    box-shadow: 0 1px 2px rgba(46, 42, 36, 0.04);
-    transition: box-shadow 0.35s ease, transform 0.35s ease;
-    overflow: hidden;
+    filter: drop-shadow(0 14px 30px rgba(46, 42, 36, 0.18));
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+      filter 0.5s ease;
   }
   .gallery__frame img {
     width: 100%;
     height: auto;
-    transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+    display: block;
   }
   .gallery__trigger:hover .gallery__frame {
-    box-shadow: 0 16px 40px rgba(46, 42, 36, 0.16);
-    transform: translateY(-3px);
-  }
-  .gallery__trigger:hover .gallery__frame img {
-    transform: scale(1.03);
+    transform: translateY(-6px);
+    filter: drop-shadow(0 26px 50px rgba(46, 42, 36, 0.26));
   }
   .gallery__meta {
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.85rem 0.2rem 0.2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 1.25rem 0.2rem 0;
+    text-align: center;
   }
   .gallery__title {
     font-family: var(--serif);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--ink);
   }
   .gallery__series {
-    font-size: 0.68rem;
-    letter-spacing: 0.18em;
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink-faint);
-    white-space: nowrap;
   }
 
   /* ---- Lightbox -------------------------------------------------------- */

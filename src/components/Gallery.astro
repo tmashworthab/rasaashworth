@@ -48,58 +48,71 @@ const { works } = Astro.props;
 </div>
 
 <style>
+  /* Aligned grid — every piece occupies an equal cell so rows and columns
+     line up. Images are shown whole (never cropped) and centred. */
   .gallery {
     list-style: none;
     margin: 0;
     padding: 0;
-    columns: 2;
-    column-gap: clamp(1.75rem, 4vw, 4rem);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(2rem, 4vw, 3.25rem) clamp(1.25rem, 3vw, 2.75rem);
   }
   @media (min-width: 56rem) {
     .gallery {
-      columns: 3;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
-  @media (max-width: 30rem) {
+  @media (max-width: 28rem) {
     .gallery {
-      columns: 1;
+      grid-template-columns: 1fr;
     }
   }
   .gallery__item {
-    break-inside: avoid;
-    margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+    position: relative;
+    z-index: 1;
+  }
+  .gallery__item:hover {
+    z-index: 5;
   }
   .gallery__trigger {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     padding: 0;
     border: 0;
     background: none;
-    text-align: left;
     cursor: pointer;
     font: inherit;
     color: inherit;
   }
-  /* The woven tapestry sits directly on the linen — no frame, no box. */
   .gallery__frame {
-    display: block;
-    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
-      opacity 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: clamp(15rem, 30vw, 23rem);
+    transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
   .gallery__frame img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
     height: auto;
+    object-fit: contain;
     display: block;
   }
+  /* Hover zooms the piece in (it pops above its neighbours). */
   .gallery__trigger:hover .gallery__frame {
-    transform: scale(1.02);
+    transform: scale(1.08);
   }
   .gallery__meta {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.25rem;
-    padding: 1.25rem 0.2rem 0;
+    padding: 1.1rem 0.2rem 0;
     text-align: center;
   }
   .gallery__title {

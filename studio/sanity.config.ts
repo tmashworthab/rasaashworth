@@ -8,7 +8,7 @@ import {schemaTypes} from './schemaTypes'
 export default defineConfig({
   name: 'rasa',
   title: 'Rasa Ashworth — Website',
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'replace-with-project-id',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || '45o2qwxq',
   dataset: 'production',
   plugins: [
     // Pin "Site text" as a single editable document at the top of the list.

@@ -1,9 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
+import { getSettings } from '../lib/content';
 
-const email = 'rasa.ashworth@live.co.uk';
-// A British Tapestry Group profile or social link.
-const btgUrl = 'https://www.thebritishtapestrygroup.co.uk/showcase/rasa-ashworth/';
+const settings = await getSettings();
+const email = settings.contactEmail;
+const btgUrl = settings.btgUrl;
+const studio = settings.studioLocation;
 
 // Contact form delivery via Web3Forms (https://web3forms.com) — free, no
 // account. Get an access key in ~30s: enter rasa.ashworth@live.co.uk at
@@ -34,7 +36,7 @@ const web3formsKey = '7033556a-1fcf-435d-96f8-ea43c4464f13';
           </li>
           <li>
             <span class="contact__label">Studio</span>
-            <span>Bristol, United Kingdom</span>
+            <span>{studio}</span>
           </li>
           <li>
             <span class="contact__label">Also find me on</span>

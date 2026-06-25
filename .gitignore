@@ -2,6 +2,10 @@
 dist/
 # dependencies
 node_modules/
+# sanity studio
+studio/node_modules/
+studio/dist/
+studio/.sanity/
 # generated types
 .astro/
 # logs

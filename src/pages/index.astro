@@ -1,7 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import Gallery from '../components/Gallery.astro';
-import { featured } from '../data/works';
+import { getFeatured, getSettings } from '../lib/content';
+
+const featured = await getFeatured();
+const settings = await getSettings();
+const heroWork = featured.find((w) => w.slug === 'conversation') ?? featured[1] ?? featured[0];
 ---
 
 <Base>
@@ -11,10 +15,7 @@ import { featured } from '../data/works';
       <div class="hero__text reveal">
         <span class="eyebrow">Woven Tapestry · Bristol, UK</span>
         <h1>Rasa Ashworth</h1>
-        <p class="lead">
-          Tapestries woven from light and shadow: still life, figures and the
-          quiet landscapes of memory.
-        </p>
+        <p class="lead">{settings.heroTagline}</p>
         <div class="hero__actions">
           <a href="/gallery" class="btn btn--accent">View the Gallery</a>
           <a href="/about" class="btn">About the Artist</a>
@@ -22,11 +23,11 @@ import { featured } from '../data/works';
       </div>
       <figure class="hero__image reveal">
         <img
-          src="/images/gallery/10.jpg"
-          alt="Conversation, a framed tapestry by Rasa Ashworth"
+          src={heroWork?.image}
+          alt={`${heroWork?.title}, a framed tapestry by Rasa Ashworth`}
           fetchpriority="high"
         />
-        <figcaption>Conversation · wool &amp; linen</figcaption>
+        <figcaption>{heroWork?.title} · wool &amp; linen</figcaption>
       </figure>
     </div>
   </section>
@@ -35,11 +36,7 @@ import { featured } from '../data/works';
   <section class="section--tight">
     <div class="wrap statement reveal">
       <hr class="divider" />
-      <p class="statement__quote">
-        “My work has been deeply inspired by rural landscapes, focusing on the
-        interplay of light and shadow, the gentle transitions and subtler
-        colours found in the natural world.”
-      </p>
+      <p class="statement__quote">“{settings.statementQuote}”</p>
       <p class="statement__attr">Rasa Ashworth</p>
     </div>
   </section>

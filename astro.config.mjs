@@ -1,11 +1,9 @@
 import { defineConfig } from 'astro/config';
+import node from '@astrojs/node';
 
-// Static site. Update `site` to the final domain once known for correct
-// canonical URLs and sitemap generation.
+// Server-rendered so content edited in Sanity appears without a rebuild.
 export default defineConfig({
   site: 'https://www.rasaashworth.com',
-  output: 'static',
-  build: {
-    format: 'directory',
-  },
+  output: 'server',
+  adapter: node({ mode: 'standalone' }),
 });

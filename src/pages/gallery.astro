@@ -1,7 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import Gallery from '../components/Gallery.astro';
-import { works } from '../data/works';
+import { getWorks } from '../lib/content';
+
+const works = await getWorks();
 ---
 
 <Base

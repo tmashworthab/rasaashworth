@@ -1,8 +1,13 @@
 ---
-import type { Work } from '../data/works';
-
+interface GalleryWork {
+  slug: string;
+  title: string;
+  series: string;
+  description: string;
+  image: string;
+}
 interface Props {
-  works: Work[];
+  works: GalleryWork[];
 }
 const { works } = Astro.props;
 ---
@@ -10,7 +15,7 @@ const { works } = Astro.props;
 <ul class="gallery" role="list">
   {
     works.map((work, i) => (
-      <li class:list={['gallery__item reveal', `is-${work.orientation}`]}>
+      <li class="gallery__item reveal">
         <button
           class="gallery__trigger"
           data-index={i}

@@ -16,7 +16,10 @@ const settings = await getSettings();
           src="/images/rasa-portrait.jpg"
           alt="Rasa Ashworth standing beside one of her large woven tapestries"
         />
-        <figcaption>Rasa Ashworth with one of her tapestries</figcaption>
+        <figcaption>
+          This is me in 1989, beside one of my larger tapestries — woven on
+          commission for the Kaunas electricity board in Lithuania.
+        </figcaption>
       </figure>
 
       <div class="about__text reveal">
@@ -77,10 +80,11 @@ const settings = await getSettings();
     display: block;
   }
   .about__portrait figcaption {
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
     padding-top: 0.85rem;
   }
   .about__facts {

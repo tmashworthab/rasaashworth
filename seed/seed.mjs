@@ -15,14 +15,14 @@ const client = createClient({
 const works = [
   {slug: 'summer-garden', title: 'Summer Garden', img: '03', series: 'Still Life', description: 'Tulips and wild blooms reach upward toward a woven sun, in a riot of red, ochre and green against a luminous ground.'},
   {slug: 'conversation', title: 'Conversation', img: '10', series: 'Still Life', description: 'An abstract still life in warm earth tones, with quiet passages of green and blue and decorative woven borders, like a remembered interior.'},
-  {slug: 'harbour-at-sunset', title: 'Harbour at Sunset', img: '11', series: 'Seascapes', description: 'A jetty reaches into a blazing sunset over still water — a maritime scene in the spirit of the Bristol coast.'},
+  {slug: 'harbour-at-sunset', title: 'Harbour at Sunset', img: '11', series: 'Seascapes', description: 'A jetty reaches into a blazing sunset over still water, a maritime scene in the spirit of the Bristol coast.'},
   {slug: 'nocturne', title: 'Nocturne', img: '01', series: 'Figures', description: 'A crowned figure emerges from a deep, dark ground, lit by pale arcs and small flares of red and gold.'},
   {slug: 'the-cabinet', title: 'The Cabinet', img: '05', series: 'Still Life', description: 'Bottles, jars and small treasures arranged across the shelves of a cabinet, in a muted palette full of stillness and memory.'},
-  {slug: 'sun-figure', title: 'Sun Figure', img: '07', series: 'Figures', description: 'A totemic figure crowned with rays of sun, woven in ochre, terracotta and slate blue — part portrait, part idol.'},
+  {slug: 'sun-figure', title: 'Sun Figure', img: '07', series: 'Figures', description: 'A totemic figure crowned with rays of sun, woven in ochre, terracotta and slate blue: part portrait, part idol.'},
   {slug: 'coronation', title: 'Coronation', img: '02', series: 'Figures', description: 'A regal figure draped in blue and grey beneath a small woven crown, set against a soft, light ground.'},
   {slug: 'vessels', title: 'Vessels', img: '08', series: 'Still Life', description: 'Pale vessels and soft circular forms drift across a quiet ground, woven in chalky blues and warm sand.'},
-  {slug: 'hill-town', title: 'Hill Town', img: '09', series: 'Landscape', description: 'Rooftops gather along a ridge above bands of patterned earth — a remembered landscape of light and shadow.'},
-  {slug: 'the-table', title: 'The Table', img: '04', series: 'Still Life', description: 'Vessels and forms gathered across a table, with two figures rising softly beneath — a study in light, shadow and gentle transitions.'},
+  {slug: 'hill-town', title: 'Hill Town', img: '09', series: 'Landscape', description: 'Rooftops gather along a ridge above bands of patterned earth, a remembered landscape of light and shadow.'},
+  {slug: 'the-table', title: 'The Table', img: '04', series: 'Still Life', description: 'Vessels and forms gathered across a table, with two figures rising softly beneath, a study in light, shadow and gentle transitions.'},
   {slug: 'moonlight', title: 'Moonlight', img: '06', series: 'Seascapes', description: 'Moonlight scatters across dark water, with reeds and a lone bird at the water’s edge, woven in deep blues and black.'},
 ]
 
@@ -69,7 +69,7 @@ async function run() {
     btgUrl: 'https://www.thebritishtapestrygroup.co.uk/showcase/rasa-ashworth/',
   })
   console.log('✓ Site text')
-  console.log('\nDone — all content imported into Sanity.')
+  console.log('\nDone - all content imported into Sanity.')
 }
 
 run().catch((e) => {

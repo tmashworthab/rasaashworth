@@ -3,7 +3,7 @@ export interface Work {
   title: string;
   /** Filename in /public/images */
   image: string;
-  /** 'portrait' | 'landscape' | 'square' — used for gallery layout hints */
+  /** 'portrait' | 'landscape' | 'square' - used for gallery layout hints */
   orientation: 'portrait' | 'landscape' | 'square';
   /** Short series / theme label shown under the title */
   series: string;
@@ -11,7 +11,7 @@ export interface Work {
   description: string;
 }
 
-// The artworks shown on the site — professionally framed and photographed.
+// The artworks shown on the site - professionally framed and photographed.
 // Images live in /public/images/gallery (the surrounding wall is trimmed away
 // so each framed piece sits directly on the page). To add a new piece, drop
 // its photo in that folder and add an entry here. Home-page "featured" order
@@ -42,7 +42,7 @@ export const works: Work[] = [
     orientation: 'landscape',
     series: 'Seascapes',
     description:
-      'A jetty reaches into a blazing sunset over still water — a maritime scene in the spirit of the Bristol coast.',
+      'A jetty reaches into a blazing sunset over still water, a maritime scene in the spirit of the Bristol coast.',
   },
   {
     slug: 'nocturne',
@@ -69,7 +69,7 @@ export const works: Work[] = [
     orientation: 'portrait',
     series: 'Figures',
     description:
-      'A totemic figure crowned with rays of sun, woven in ochre, terracotta and slate blue — part portrait, part idol.',
+      'A totemic figure crowned with rays of sun, woven in ochre, terracotta and slate blue: part portrait, part idol.',
   },
   {
     slug: 'coronation',
@@ -96,7 +96,7 @@ export const works: Work[] = [
     orientation: 'portrait',
     series: 'Landscape',
     description:
-      'Rooftops gather along a ridge above bands of patterned earth — a remembered landscape of light and shadow.',
+      'Rooftops gather along a ridge above bands of patterned earth, a remembered landscape of light and shadow.',
   },
   {
     slug: 'the-table',
@@ -105,7 +105,7 @@ export const works: Work[] = [
     orientation: 'square',
     series: 'Still Life',
     description:
-      'Vessels and forms gathered across a table, with two figures rising softly beneath — a study in light, shadow and gentle transitions.',
+      'Vessels and forms gathered across a table, with two figures rising softly beneath, a study in light, shadow and gentle transitions.',
   },
   {
     slug: 'moonlight',

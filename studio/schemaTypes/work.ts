@@ -1,6 +1,6 @@
 import {defineField, defineType} from 'sanity'
 
-// One gallery artwork. This is what your sister edits for each piece —
+// One gallery artwork. This is what your sister edits for each piece -
 // its title, which series it belongs to, the description shown when you
 // click it, the image, and where it appears in the running order.
 export default defineType({

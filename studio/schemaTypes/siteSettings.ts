@@ -1,7 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
 // The editable text for the rest of the site (home, about, contact).
-// This is a single document — there is only ever one "Site settings".
+// This is a single document - there is only ever one "Site settings".
 export default defineType({
   name: 'siteSettings',
   title: 'Site text',
@@ -31,14 +31,14 @@ export default defineType({
     // About
     defineField({
       name: 'aboutLead',
-      title: 'About — opening line',
+      title: 'About: opening line',
       type: 'text',
       rows: 2,
       group: 'about',
     }),
     defineField({
       name: 'aboutBody',
-      title: 'About — biography',
+      title: 'About: biography',
       type: 'array',
       of: [{type: 'block', styles: [{title: 'Normal', value: 'normal'}], lists: [], marks: {decorators: []}}],
       group: 'about',

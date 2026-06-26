@@ -3,7 +3,7 @@ import imageUrlBuilder from '@sanity/image-url'
 
 // Reads content from Sanity when configured. If the env vars are absent
 // (e.g. before the CMS is connected), `isConfigured` is false and the site
-// falls back to the built-in content in src/data/works.ts — so the build
+// falls back to the built-in content in src/data/works.ts - so the build
 // never breaks.
 const projectId = import.meta.env.SANITY_PROJECT_ID || '45o2qwxq'
 const dataset = import.meta.env.SANITY_DATASET || 'production'

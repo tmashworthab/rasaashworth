@@ -144,7 +144,7 @@ p {
 
 /* ---- Buttons ------------------------------------------------------------- */
 
-/* Borderless, underline-style links — no boxes */
+/* Borderless, underline-style links - no boxes */
 .btn {
   display: inline-block;
   font-family: var(--sans);
